@@ -1,0 +1,15 @@
+{
+  "author": "Timothy J. Marshall <timothyjmarshall@gmail.com>",
+  "name": "HipperChat",
+  "description": "Speaks with HipChat",
+  "version": "0.0.1",
+  "main": "hipper.js",
+  "engines": {
+    "node": ">=0.10.8"
+  },
+  "dependencies" : { 
+    "request": "*"
+  },
+  "repository": {},
+  "licenses": []
+}
