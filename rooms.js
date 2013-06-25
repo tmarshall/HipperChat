@@ -1,5 +1,4 @@
 var request = require('request');
-var qs = require('querystring');
 var hipperError = require('./error.js');
 
 function rooms(auth) {
@@ -24,7 +23,7 @@ rooms.prototype.create = function(options, callback) {
     return callback(new hipperError('owner user id required'));
   }
 
-  this.r.post(this.baseUrl + '/create', { form: options }, callback);
+  this.r.post(this.baseUrl + 'create', { form: options }, callback);
 };
 
 /**
@@ -35,7 +34,7 @@ rooms.prototype.delete = function(options, callback) {
     return callback(new hipperError('room id required'));
   }
 
-  this.r.post(this.baseUrl + '/delete', { form: options }, callback);
+  this.r.post(this.baseUrl + 'delete', { form: options }, callback);
 };
 
 /**
@@ -57,14 +56,14 @@ rooms.prototype.history = function(options, callback) {
     qs[key] = options[key];
   }
 
-  this.r.get(this.baseUrl + '/history', { qs: qs }, callback);
+  this.r.get(this.baseUrl + 'history', { qs: qs }, callback);
 };
 
 /**
   List rooms
 */
 rooms.prototype.list = function(callback) {
-  this.r.get(this.baseUrl + '/list', callback);
+  this.r.get(this.baseUrl + 'list', callback);
 };
 
 /**
@@ -88,7 +87,7 @@ rooms.prototype.message = function(options, callback) {
     qs[key] = options[key];
   }
 
-  this.r.get(this.baseUrl + '/message', { qs: qs }, callback);
+  this.r.get(this.baseUrl + 'message', { qs: qs }, callback);
 };
 
 /**
@@ -101,7 +100,7 @@ rooms.prototype.topic = function(options, callback) {
     return callback(new hipperError('topic required'));
   }
 
-  this.r.post(this.baseUrl + '/topic', { form: options }, callback);
+  this.r.post(this.baseUrl + 'topic', { form: options }, callback);
 };
 
 /**
@@ -121,7 +120,8 @@ rooms.prototype.show = function(options, callback) {
     qs[key] = options[key];
   }
 
-  this.r.get(this.baseUrl + '/show', { qs: qs }, callback);
+  this.r.get(this.baseUrl + 'show', { qs: qs }, callback);
 };
+
 
 module.exports = rooms;
